@@ -1,5 +1,4 @@
-﻿using System;
-using System.Xml;
+﻿using System.Xml;
 using System.Xml.Serialization;
 
 public class Program
@@ -21,7 +20,6 @@ public class Program
                 if (newelements != null)
                 {
                     ConverteHelper GetDate = new ConverteHelper(); // создаем объект для вызова метода получения даты
-
                     Console.WriteLine($"ИдФайл: {newelements.idFile}");
                     Console.WriteLine($"ВерсПрог: {newelements.programVersion}");
                     Console.WriteLine($"ВерсФорм: {newelements.formatVersion}");
@@ -92,9 +90,10 @@ public class ConverteHelper
             var dateMass = dateValue.Split('.');
             GetdateValue = new DateTime(Convert.ToInt32(dateMass[2]), Convert.ToInt32(dateMass[1]), Convert.ToInt32(dateMass[0]));
 
-            if (GetdateValue <= DateTime.Now && GetdateValue>DateTime.Now.AddYears(-5))
+            if (GetdateValue <= DateTime.Now && GetdateValue > DateTime.Now.AddYears(-30))
             {
                 Console.WriteLine($"Дата: {GetdateValue:d}");
+ 
             }
             else
                 Console.WriteLine("Дата: Undefined");
